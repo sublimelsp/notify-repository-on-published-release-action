@@ -6,7 +6,7 @@ async function run(): Promise<void> {
     await new http.HttpClient().postJson(
       'https://api.github.com/repos/sublimelsp/repository/dispatches',
       {
-        event_type: 'lsp-add-or-update-repository',
+        event_type: 'lsp-add-or-update-package',
         client_payload: JSON.parse(core.getInput('payload'))
       },
       {
