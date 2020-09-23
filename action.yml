@@ -5,7 +5,7 @@ author: sublimelsp
 inputs:
   payload:
     required: true
-    description: published release event data
+    description: published release event json (as string)
   personal-access-token:
     required: true
     description: personal access token used for authorization in the HTTP POST request

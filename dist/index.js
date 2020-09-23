@@ -104,7 +104,7 @@ function run() {
         try {
             yield new http.HttpClient().postJson('https://api.github.com/repos/sublimelsp/repository/dispatches', {
                 event_type: 'lsp-add-or-update-repository',
-                client_payload: core.getInput('payload')
+                client_payload: JSON.parse(core.getInput('payload'))
             }, {
                 Accept: 'application/vnd.github.v3+json',
                 Authorization: `token ${core.getInput('personal-access-token')}`
