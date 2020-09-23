@@ -1,6 +1,15 @@
 name: sublimelsp
 description: Sends HTTP POST data with json
 author: sublimelsp
+
+inputs:
+  payload:
+    required: true
+    description: published release event data
+  personal-access-token:
+    required: true
+    description: personal access token used for authorization in the HTTP POST request
+
 runs:
   using: node12
   main: dist/index.js
