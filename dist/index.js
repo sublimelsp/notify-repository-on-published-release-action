@@ -106,6 +106,7 @@ function run() {
                 event_type: 'lsp-add-or-update-repository',
                 client_payload: JSON.parse(core.getInput('payload'))
             }, {
+                'User-Agent': 'sublimelsp',
                 Accept: 'application/vnd.github.v3+json',
                 Authorization: `token ${core.getInput('personal-access-token')}`
             });
