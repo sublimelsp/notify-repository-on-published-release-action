@@ -1,16 +1,19 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
+import * as http from '@actions/http-client'
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+    await new http.HttpClient().postJson(
+      'https://api.github.com/repos/sublimelsp/repository/dispatches',
+      {
+        event_type: 'lsp-add-or-update-repository',
+        client_payload: core.getInput('payload')
+      },
+      {
+        Accept: 'application/vnd.github.v3+json',
+        Authorization: `token ${core.getInput('personal-access-token')}`
+      }
+    )
   } catch (error) {
     core.setFailed(error.message)
   }
