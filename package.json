@@ -33,7 +33,7 @@
     "@typescript-eslint/parser": "^3.10.1",
     "@vercel/ncc": "^0.45.0",
     "eslint": "^7.8.1",
-    "eslint-plugin-github": "^4.1.1",
+    "eslint-plugin-github": "^6.0.0",
     "eslint-plugin-jest": "^23.20.0",
     "js-yaml": "^3.14.0",
     "prettier": "2.8.8",
