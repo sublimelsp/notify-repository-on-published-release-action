@@ -31524,7 +31524,7 @@ async function run() {
         setFailed(error instanceof Error ? error.message : String(error));
     }
 }
-run();
+void run();
 
 
 //# sourceMappingURL=index.js.map

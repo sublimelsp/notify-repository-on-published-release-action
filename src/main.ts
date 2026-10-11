@@ -7,7 +7,7 @@ async function run(): Promise<void> {
       'https://api.github.com/repos/sublimelsp/repository/dispatches',
       {
         event_type: 'lsp-add-or-update-package',
-        client_payload: JSON.parse(core.getInput('payload'))
+        client_payload: JSON.parse(core.getInput('payload')) as unknown
       },
       {
         'User-Agent': 'sublimelsp',
@@ -20,4 +20,4 @@ async function run(): Promise<void> {
   }
 }
 
-run()
+void run()
